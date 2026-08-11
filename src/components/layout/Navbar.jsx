@@ -10,9 +10,10 @@ export default function Navbar() {
                     <Link to="/" className="flex items-center">
                         <img
                             src={cloudLogo}
-                            className="mr-3 h-12"
-                            alt="Logo"
+                            className="mr-2 h-10"
+                            alt="Weatherly-Logo"
                         />
+                        <span className='text-xl font-semibold text-gray-800'>Weatherly</span>
                     </Link>
                     <div className="flex items-center lg:order-2">
                         <Link

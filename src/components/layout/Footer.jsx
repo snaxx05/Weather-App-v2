@@ -11,9 +11,10 @@ export default function Footer() {
                         <Link to="/" className="flex items-center">
                             <img
                                 src={cloudLogo}
-                                className="mr-3 h-16"
-                                alt="Logo"
+                                className="mr-2 h-12"
+                                alt="Weatherly-logo"
                             />
+                            <span className='text-2xl font-semibold text-gray-800'>Weatherly</span>
                         </Link>
                     </div>
                     <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
