@@ -1,29 +1,52 @@
 import React from 'react'
 import SearchBar from '../components/common/SearchBar'
 import WeatherCard from '../components/common/WeatherCard'
-import Forecast from './Forecast'
+import ForecastCard from '../components/weather/ForecastCard'
 import { useState } from 'react'
 import { getCurrentWeather } from '../services/weatherApi'
+import { getForecast } from '../services/weatherApi'
 function Home() {
 
-const forecast = [
-    { day: "Mon", temperature: 30, condition: "Sunny" },
-    { day: "Tue", temperature: 28, condition: "Cloudy" },
-    { day: "Wed", temperature: 26, condition: "Rain" },
-    { day: "Thu", temperature: 31, condition: "Sunny" },
-    { day: "Fri", temperature: 29, condition: "Cloudy" }
-]
+
+const [forecast,setForecast]=useState(null);
 const [weather,setWeather]=useState(null)
 const [searchedCity,setSearchedCity]=useState("");    
 const handleSearch = async (city) => {
     try {
         const data = await getCurrentWeather(city);
+        const fore = await getForecast(city);
         setWeather(data);
+        setForecast(fore);
         setSearchedCity(data.name)
     } catch (error) {
         console.log(error.message);
     }
 };
+
+const dailyForecast = [];
+let prevDate="";
+if(forecast){
+    for(let i=0;i<forecast.list.length;i++){
+    const item=forecast.list[i];
+    const currentDate = item.dt_txt.split(" ")[0];
+    if(currentDate!=prevDate){
+        const date = new Date(currentDate);
+        const day= date.toLocaleDateString("en-us" , {
+            weekday:"short"
+        });
+        dailyForecast.push({
+            day:day,
+            temperature:item.main.temp,
+            condition:item.weather[0].description,
+            rain_probability: item.pop*100,
+            icon:item.weather[0].icon
+        });
+        prevDate=currentDate;
+    }
+    if(dailyForecast.length == 5)
+        break;
+}
+}
 
     return (
         <main>
@@ -43,12 +66,15 @@ const handleSearch = async (city) => {
                 {weather && <WeatherCard weather={weather}  />}
 
                  <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mt-8">
-                {forecast.map((day)=>(
-                    <Forecast 
-                    key={day.day}
-                    day={day.day}
-                    temperature={day.temperature}
-                    condition={day.condition}/>
+                {dailyForecast.map((day) => (
+                    <ForecastCard
+                        key={day.day}
+                        day={day.day}
+                        temperature={day.temperature}
+                        condition={day.condition}
+                        rain={day.rain_probability}
+                        icon={day.icon}
+                    />
                 ))}
             </div>
             </section>
