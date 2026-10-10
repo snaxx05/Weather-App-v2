@@ -1,16 +1,18 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import SearchBar from '../components/common/SearchBar'
 import WeatherCard from '../components/common/WeatherCard'
 import ForecastCard from '../components/weather/ForecastCard'
-import { useState } from 'react'
-import { getCurrentWeather } from '../services/weatherApi'
-import { getForecast } from '../services/weatherApi'
+import { getCurrentWeather , getForecast } from '../services/weatherApi'
+import { WeatherContext } from '../context/WeatherContext'
 function Home() {
+const {forecast,
+    setForecast,
+    weather,
+    setWeather,
+    searchedCity,
+    setSearchedCity
+    }=useContext(WeatherContext); 
 
-
-const [forecast,setForecast]=useState(null);
-const [weather,setWeather]=useState(null)
-const [searchedCity,setSearchedCity]=useState("");    
 const handleSearch = async (city) => {
     try {
         const data = await getCurrentWeather(city);

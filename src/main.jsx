@@ -8,6 +8,7 @@ import About from './pages/About.jsx';
 import Explore from './pages/Explore.jsx'
 import Forecast from './pages/Forecast.jsx'
 import NotFound from './pages/NotFound.jsx'
+import { WeatherProvider } from "./context/WeatherContext.jsx";
 import {
   Route,
   RouterProvider,
@@ -29,6 +30,8 @@ const router = createBrowserRouter(
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <WeatherProvider>
+      <RouterProvider router={router} />
+    </WeatherProvider>
   </React.StrictMode>
 );
