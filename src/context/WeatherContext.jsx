@@ -5,7 +5,7 @@ export const WeatherContext= createContext();
 export function WeatherProvider({children}){
     const [weather,setWeather] = useState(null);
     const [forecast,setForecast] = useState(null);
-    const [serachedCity,setSearchedCity] = useState("");
+    const [searchedCity,setSearchedCity] = useState("");
 
     return(
         <WeatherContext.Provider 
@@ -14,7 +14,7 @@ export function WeatherProvider({children}){
             setWeather,
             forecast,
             setForecast,
-            serachedCity,
+            searchedCity,
             setSearchedCity}}>
             {children}
         </WeatherContext.Provider>
