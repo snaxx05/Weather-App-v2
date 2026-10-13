@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
-import SearchBar from '../components/common/SearchBar'
-import WeatherCard from '../components/common/WeatherCard'
+import SearchBar from '../components/weather/SearchBar'
+import WeatherCard from '../components/weather/WeatherCard'
 import ForecastCard from '../components/weather/ForecastCard'
 import { getCurrentWeather , getForecast } from '../services/weatherApi'
 import { WeatherContext } from '../context/WeatherContext'

@@ -1,5 +1,4 @@
-import React from 'react'
-
+import React from "react"
 function WeatherCard(props) {
     console.log(props.weather)
     return (
@@ -27,7 +26,6 @@ function WeatherCard(props) {
                         <p className="text-sm text-gray-500">Humidity</p>
                         <p className="font-semibold">{props.weather.main.humidity}%</p>
                     </div>
-
                     <div>
                         <p className="text-sm text-gray-500">Wind</p>
                         <p className="font-semibold">{props.weather.wind.speed} km/h</p>

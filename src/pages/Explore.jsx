@@ -1,8 +1,10 @@
-import React from 'react'
-
+import WeatherMap from '../components/weather/WeatherMap'
+import { useContext } from 'react'
+import { WeatherContext } from '../context/WeatherContext'
 function Explore() {
+  const {weather} = useContext(WeatherContext)
   return (
-    <div>Explore</div>
+    <WeatherMap weather = {weather}/>
   )
 }
 

@@ -101,7 +101,7 @@ function Forecast() {
                         {periods.map((item, index) => (
                             <article
                                 key={item.dt}
-                                className={`min-w-[104px] flex-1 snap-start px-3 py-5 text-center sm:min-w-0 sm:px-2 ${
+                                className={`min-w-26 flex-1 snap-start px-3 py-5 text-center sm:min-w-0 sm:px-2 ${
                                     index > 0 ? 'border-l border-slate-200' : ''
                                 }`}
                             >
@@ -124,7 +124,7 @@ function Forecast() {
                                 </p>
 
                                 <p
-                                    className="mx-auto mt-2 max-w-[100px] truncate text-xs capitalize text-slate-500"
+                                    className="mx-auto mt-2 max-w- truncate text-xs capitalize text-slate-500"
                                     title={item.weather[0].description}
                                 >
                                     {item.weather[0].description}
