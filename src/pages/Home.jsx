@@ -10,10 +10,13 @@ const {forecast,
     weather,
     setWeather,
     searchedCity,
-    setSearchedCity
+    setSearchedCity,
+    error,
+    setError,
     }=useContext(WeatherContext); 
 
 const handleSearch = async (city) => {
+    setError(null)
     try {
         const data = await getCurrentWeather(city);
         const fore = await getForecast(city);
@@ -21,6 +24,7 @@ const handleSearch = async (city) => {
         setForecast(fore);
         setSearchedCity(data.name)
     } catch (error) {
+        setError(error.message);
         console.log(error.message);
     }
 };
@@ -31,7 +35,7 @@ if(forecast){
     for(let i=0;i<forecast.list.length;i++){
     const item=forecast.list[i];
     const currentDate = item.dt_txt.split(" ")[0];
-    if(currentDate!=prevDate){
+    if(currentDate!==prevDate){
         const date = new Date(currentDate);
         const day= date.toLocaleDateString("en-us" , {
             weekday:"short"
@@ -45,7 +49,7 @@ if(forecast){
         });
         prevDate=currentDate;
     }
-    if(dailyForecast.length == 5)
+    if(dailyForecast.length === 5)
         break;
 }
 }
@@ -64,7 +68,7 @@ if(forecast){
                 <div className="mt-8 flex justify-center">
                     <SearchBar  onSearch = {handleSearch}/>
                 </div>
-                <p>You temporarily serach : {searchedCity}</p>
+                {error && <p>{error}</p>}
                 {weather && <WeatherCard weather={weather}  />}
 
                  <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mt-8">

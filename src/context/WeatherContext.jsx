@@ -6,6 +6,12 @@ export function WeatherProvider({children}){
     const [weather,setWeather] = useState(null);
     const [forecast,setForecast] = useState(null);
     const [searchedCity,setSearchedCity] = useState("");
+    const [error, setError] = useState(null);
+    const resetWeather = () =>{
+        setWeather(null),
+        setForecast(null),
+        setSearchedCity("")
+    }
 
     return(
         <WeatherContext.Provider 
@@ -15,7 +21,10 @@ export function WeatherProvider({children}){
             forecast,
             setForecast,
             searchedCity,
-            setSearchedCity}}>
+            setSearchedCity,
+            error,
+            setError,
+            resetWeather}}>
             {children}
         </WeatherContext.Provider>
     );
