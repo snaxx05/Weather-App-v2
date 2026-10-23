@@ -2,6 +2,20 @@
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import TemperatureLegend from './TemperatureLegend'
 import { useState } from 'react'
+import L from 'leaflet'
+import markerIcon from 'leaflet/dist/images/marker-icon.png'
+import markerIcon2x from 'leaflet/dist/images/marker-icon-2x.png'
+import markerShadow from 'leaflet/dist/images/marker-shadow.png'
+
+const weatherMarkerIcon = L.icon({
+  iconUrl: markerIcon,
+  iconRetinaUrl: markerIcon2x,
+  shadowUrl: markerShadow,
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+  popupAnchor: [1, -34],
+  shadowSize: [41, 41],
+})
 
 function WeatherMap({ weather }) {
   if (!weather?.coord) {
@@ -60,7 +74,7 @@ function WeatherMap({ weather }) {
           attribution="Weather data &copy; OpenWeather"
         />
 
-        <Marker position={[lat, lon]}>
+        <Marker position={[lat, lon]} icon={weatherMarkerIcon}>
           <Popup>
             <div>
                  <strong>{weather.name}</strong>
