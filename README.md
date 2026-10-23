@@ -83,7 +83,7 @@ Never commit your actual API key to the repository.
 ### Explore
 ![Weatherly Explore](screenshots/explore.png)
 
-### About View
+### About 
 ![Weatherly About](screenshots/about.png)
 
 ## Author
