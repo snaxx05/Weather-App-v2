@@ -1,16 +1,93 @@
-# React + Vite
+# Weatherly 🌦️
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A weather application built with React that lets users search for cities, view current weather conditions, explore forecasts, and locate weather information on an interactive map.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Current Weather:** Search for a city and view its current weather conditions.
+- **Forecast:** Explore upcoming weather forecasts.
+- **Interactive Map:** View the searched location on a map with weather map overlays.
+- **Explore:** Discover weather information through the map interface.
+- **Error Handling:** Display appropriate errors for invalid cities and API failures.
+- **Reset:** Clear the current weather search and return to the initial state.
+- **Responsive Design:** Designed to work across desktop, tablet, and mobile screens.
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React
+- Vite
+- JavaScript
+- Tailwind CSS
+- React Router
+- React Leaflet and Leaflet
+- OpenWeather API
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Prerequisites
+
+- Node.js and npm
+- An OpenWeather API key
+
+### Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/snaxx05/Weather-App-v2.git
+   ```
+
+2. Navigate into the project directory:
+
+   ```bash
+   cd Weather-App-v2
+   ```
+
+3. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+
+4. Create a `.env` file in the project root and add your API key:
+
+   ```env
+   VITE_WEATHER_API_KEY=your_api_key_here
+   ```
+
+5. Start the development server:
+
+   ```bash
+   npm run dev
+   ```
+
+6. Open the local URL shown in your terminal.
+
+## Environment Variables
+
+| Variable | Description |
+|---|---|
+| `VITE_WEATHER_API_KEY` | API key used to retrieve weather data from OpenWeather |
+
+Never commit your actual API key to the repository.
+
+
+## Screenshots
+
+### Home
+![Weatherly Home](screenshots/home.png)
+
+### Forecast
+![Weatherly Forecast](screenshots/forecast.png)
+
+### Explore
+![Weatherly Explore](screenshots/explore.png)
+
+### About View
+![Weatherly About](screenshots/about.png)
+
+## Author
+
+**Sankalp Raj**
+
+GitHub: https://github.com/snaxx05
