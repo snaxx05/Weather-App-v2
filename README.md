@@ -34,13 +34,13 @@ A weather application built with React that lets users search for cities, view c
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/snaxx05/Weather-App-v2.git
+   git clone https://github.com/snaxx05/Weatherly.git
    ```
 
 2. Navigate into the project directory:
 
    ```bash
-   cd Weather-App-v2
+   cd weather-app
    ```
 
 3. Install dependencies:
@@ -70,6 +70,10 @@ A weather application built with React that lets users search for cities, view c
 | `VITE_WEATHER_API_KEY` | API key used to retrieve weather data from OpenWeather |
 
 Never commit your actual API key to the repository.
+
+## Live Demo
+
+[View Weatherly](https://weather-app-v2-nu.vercel.app/)
 
 
 ## Screenshots
